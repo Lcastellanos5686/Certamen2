@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class FormGeo {
 
+    private String idForm;
     private String titulo; //obligatorio
     private String descripcion;
     private String categoria; //obligatorio
@@ -11,13 +12,9 @@ public class FormGeo {
     private Double longitud;
     private Double latitud;
 
-    public FormGeo(String categoria, String descripcion, String titulo, LocalDateTime formDateTime, Double longitud, Double latitud) {
-        this.categoria = categoria;
-        this.descripcion = descripcion;
-        this.titulo = titulo;
-        this.formDateTime = formDateTime;
-        this.longitud = longitud;
-        this.latitud = latitud;
+    public FormGeo() {
+        this.descripcion = "-";
+
     }
 
     public String getTitulo() {
@@ -68,10 +65,19 @@ public class FormGeo {
         this.latitud = latitud;
     }
 
+    public String getIdForm() {
+        return idForm;
+    }
+
+    public void setIdForm(String idForm) {
+        this.idForm = idForm;
+    }
+
     @Override
     public String toString() {
         return "FormGeo{" +
-                "titulo='" + titulo + '\'' +
+                "idForm='" + idForm + '\'' +
+                ", titulo='" + titulo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", formDateTime=" + formDateTime +
