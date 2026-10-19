@@ -2,6 +2,10 @@
 
 Entrega del certamen para la nota. La aplicacion se llama GeoRegistro, la cual permite registrar ubicaciones para inspecciones en terreno simuladas. Esta aplicacion utiliza Firebase con base de datos RealTime, y el SDK de Google Maps
 
+## Certamen
+
+Entrega del certamen para la nota. La aplicacion se llama GeoRegistro, la cual permite registrar ubicaciones para inspecciones en terreno simuladas. Esta aplicacion utiliza Firebase con base de datos RealTime, y el SDK de Google Maps
+
 
 ## Caracteristicas
 
@@ -23,7 +27,7 @@ Entrega del certamen para la nota. La aplicacion se llama GeoRegistro, la cual p
 Clonar este repositorio con git bash:
 
 ```bash
-  git clone https://github.com/USUARIO/GeoRegistro.git
+  git https://github.com/Lcastellanos5686/Certamen2
 ```
 
 En Android Studio seleccionar Open y eligir la carpeta del proyecto.
@@ -31,7 +35,7 @@ En Android Studio seleccionar Open y eligir la carpeta del proyecto.
 
 ## Configuración
 
-Se necista configurar un api key desde [Google Cloud](console.cloud.google.com), creando un proyecto y añadiendo Google Maps SDK for android, desde la seccion de APIS AND SERVICES. Una vez realizado, se debe añadir la api de Google Maps al archivo llamado secrets.properties, ubicado en la raiz.
+Se necista configurar un api key desde [Google Cloud](console.cloud.google.com), creando un proyecto y añadiendo Google Maps SDK for android, desde la seccion de APIS AND SERVICES. Una vez realizado, se debe añadir la api de Google Maps al archivo llamado secrets.properties y añadir la propiedad MAPS_API_KEY=DEFAULT_API_KEY a local.default.properties, ubicado en la raiz.
 
 Para configurar [Firebase](https://console.firebase.google.com/), se necesita crear un nuevo proyecto, registrar la aplicacion en el proyecto, la cual genera un archivo llamado google-services.json, el cual se debe añadir a la raiz del proyecto; y crear la instancia de realtime database.
 

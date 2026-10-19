@@ -44,8 +44,12 @@
         android:id="@+id/rvHistorial"
         android:layout_width="329dp"
         android:layout_height="402dp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="313dp" />
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btMapa"
@@ -62,8 +66,11 @@
         android:id="@+id/btSensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="126dp"
+        android:layout_marginEnd="127dp"
         android:text="Revisar Sensores"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btMapa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
