@@ -46,29 +46,22 @@ public class IncidenciaMapaActivity extends AppCompatActivity  implements OnMapR
 
                 for (DataSnapshot incidencia : snapshot.getChildren()) {
 
-                    Double latitud = incidencia.child("latitud")
-                            .getValue(Double.class);
+                    Double latitud = incidencia.child("latitud").getValue(Double.class);
 
-                    Double longitud = incidencia.child("longitud")
-                            .getValue(Double.class);
+                    Double longitud = incidencia.child("longitud").getValue(Double.class);
 
-                    String titulo = incidencia.child("titulo")
-                            .getValue(String.class);
+                    String titulo = incidencia.child("titulo").getValue(String.class);
 
-                    String descripcion = incidencia.child("descripcion")
-                            .getValue(String.class);
+                    String descripcion = incidencia.child("descripcion").getValue(String.class);
 
-                    String categoria = incidencia.child("categoria")
-                            .getValue(String.class);
+                    String categoria = incidencia.child("categoria").getValue(String.class);
 
                     ///////
 
                     LatLng ubicacion = new LatLng(latitud, longitud);
 
                     Marker marcador = googleMap.addMarker(
-                            new MarkerOptions()
-                                    .position(ubicacion)
-                                    .title(titulo)
+                            new MarkerOptions().position(ubicacion).title(titulo)
                     );
 
                     if (marcador != null) {

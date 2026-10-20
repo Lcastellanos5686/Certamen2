@@ -11,10 +11,10 @@
         android:id="@+id/tituloHistorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
+        android:layout_marginTop="236dp"
         android:text="Historial de Incidencias"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,19 +22,21 @@
         android:id="@+id/tituloMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="28dp"
         android:text="Menu Principal"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
+        android:layout_width="352dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="36dp"
         android:text="Registrar Nueva Incidencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,21 +44,21 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistorial"
-        android:layout_width="329dp"
-        android:layout_height="402dp"
+        android:layout_width="325dp"
+        android:layout_height="458dp"
         android:layout_marginStart="42dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloHistorial" />
 
     <Button
         android:id="@+id/btMapa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="161dp"
+        android:layout_width="352dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="36dp"
         android:text="Buscar Incidencias en Mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,10 +66,10 @@
 
     <Button
         android:id="@+id/btSensor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:layout_marginEnd="127dp"
+        android:layout_width="352dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="36dp"
         android:text="Revisar Sensores"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

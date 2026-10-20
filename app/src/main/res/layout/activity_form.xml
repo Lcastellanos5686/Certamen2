@@ -72,8 +72,8 @@
 
     <EditText
         android:id="@+id/etHora"
-        android:layout_width="172dp"
-        android:layout_height="49dp"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
         android:layout_marginStart="9dp"
         android:layout_marginEnd="30dp"
         android:ems="10"
@@ -88,19 +88,22 @@
         android:id="@+id/etDescripcion"
         android:layout_width="345dp"
         android:layout_height="44dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="36dp"
         android:ems="10"
         android:hint="Descripcion corta."
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Spinner
         android:id="@+id/spCategoria"
-        android:layout_width="208dp"
+        android:layout_width="348dp"
         android:layout_height="42dp"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="173dp"
+        android:layout_marginEnd="33dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -144,20 +147,20 @@
         android:layout_width="362dp"
         android:layout_height="297dp"
         android:layout_marginStart="26dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFecha" />
 
     <Button
         android:id="@+id/btGuardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="218dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="25dp"
+        android:layout_width="348dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="31dp"
         android:text="Guardar Incidencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

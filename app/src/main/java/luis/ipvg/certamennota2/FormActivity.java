@@ -27,6 +27,19 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.MarkerOptions;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
+import com.google.android.gms.tasks.CancellationTokenSource;
+import com.google.android.gms.maps.model.LatLng;
+
+import android.widget.Toast;
 
 
 public class FormActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -56,6 +69,40 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
         firebaseDatabase = FirebaseDatabase.getInstance("https://certamendb-default-rtdb.firebaseio.com/");
         databaseReference = firebaseDatabase.getReference();
     }
+
+    private void centrarEnUbicacionActual() {
+
+        if (mMapa == null) return;
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+
+            return;
+        }
+
+        try {
+            mMapa.setMyLocationEnabled(true);
+
+            LocationServices.getFusedLocationProviderClient(this).getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, new CancellationTokenSource().getToken()
+                    )
+                    .addOnSuccessListener(location -> {
+
+                        if (location != null) {
+
+                            LatLng ubicacion = new LatLng(location.getLatitude(), location.getLongitude()
+                            );
+                            mMapa.animateCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(ubicacion, 16f)
+                            );
+                        } else {
+                            Toast.makeText(this, "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        } catch (SecurityException e) {
+            Toast.makeText(this, "No se consedio el permiso de ubicacion", Toast.LENGTH_SHORT).show();
+        }
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -75,6 +122,7 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
                             .title("Incidencia seleccionada")
             );
         });
+        centrarEnUbicacionActual();
     }
 
     @Override
@@ -82,9 +130,7 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_form);
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.mfMapa);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mfMapa);
 
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);}
@@ -108,15 +154,9 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
                 "Otro"
         };
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                categorias
-        );
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorias);
 
-        adapter.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item
-        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spCategoria.setAdapter(adapter);
 

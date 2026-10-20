@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void obtenerIncidencias() {
 
-        DatabaseReference dbreferencia = FirebaseDatabase
-                .getInstance("https://certamendb-default-rtdb.firebaseio.com/")
-                .getReference("Form");
-
+        DatabaseReference dbreferencia = FirebaseDatabase.getInstance("https://certamendb-default-rtdb.firebaseio.com/").getReference("Form");
         dbreferencia.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -84,19 +81,11 @@ public class MainActivity extends AppCompatActivity {
         btSensor = findViewById(R.id.btSensor);
         rvHistorial = findViewById(R.id.rvHistorial);
 
-        btRegistrar.setOnClickListener(v ->
-                abrirActivity(FormActivity.class));
-
-        btMapa.setOnClickListener(v ->
-                abrirActivity(IncidenciaMapaActivity.class));
-
-        btSensor.setOnClickListener(v ->
-                abrirActivity(SensorActivity.class));
+        btRegistrar.setOnClickListener(v -> abrirActivity(FormActivity.class));
+        btMapa.setOnClickListener(v -> abrirActivity(IncidenciaMapaActivity.class));
+        btSensor.setOnClickListener(v -> abrirActivity(SensorActivity.class));
 
         obtenerIncidencias();
-
-
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -104,14 +93,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
+    private void abrirActivity(Class<?> activity) {
+        Intent intent = new Intent(MainActivity.this, activity);
+        startActivity(intent);
+    }
     @Override
     protected void onResume() { //modificando el onresume para que actualice el recycleview
         super.onResume();
         obtenerIncidencias();
-    }
-    private void abrirActivity(Class<?> activity) {
-        Intent intent = new Intent(MainActivity.this, activity);
-        startActivity(intent);
     }
 }

@@ -10,10 +10,10 @@
     <fragment
         android:id="@+id/mfMapa"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="357dp"
-        android:layout_height="550dp"
+        android:layout_width="355dp"
+        android:layout_height="473dp"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="59dp"
         android:layout_marginEnd="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,24 +22,27 @@
 
     <TextView
         android:id="@+id/tvTitulo"
-        android:layout_width="149dp"
-        android:layout_height="26dp"
+        android:layout_width="356dp"
+        android:layout_height="25dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="31dp"
         android:text="Titulo"
-        android:textSize="16sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mfMapa" />
 
     <TextView
         android:id="@+id/tvDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_width="349dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="80dp"
         android:text="Descripcion"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mfMapa" />
 
@@ -47,11 +50,25 @@
         android:id="@+id/tvCategoria"
         android:layout_width="135dp"
         android:layout_height="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="238dp"
         android:text="Categoria"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mfMapa" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="55dp"
+        android:text="Seleccione un marcador para ver su informacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

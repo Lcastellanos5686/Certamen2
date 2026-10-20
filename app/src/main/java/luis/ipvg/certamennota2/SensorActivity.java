@@ -41,10 +41,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     protected void onResume() {
         super.onResume();
         if (acelerometro != null) {
-            mgSensor.registerListener(
-                    this,
-                    acelerometro,
-                    SensorManager.SENSOR_DELAY_NORMAL);
+            mgSensor.registerListener(this, acelerometro, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
