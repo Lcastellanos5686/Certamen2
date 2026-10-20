@@ -2,10 +2,6 @@
 
 Entrega del certamen para la nota. La aplicacion se llama GeoRegistro, la cual permite registrar ubicaciones para inspecciones en terreno simuladas. Esta aplicacion utiliza Firebase con base de datos RealTime, y el SDK de Google Maps
 
-## Certamen
-
-Entrega del certamen para la nota. La aplicacion se llama GeoRegistro, la cual permite registrar ubicaciones para inspecciones en terreno simuladas. Esta aplicacion utiliza Firebase con base de datos RealTime, y el SDK de Google Maps
-
 
 ## Caracteristicas
 

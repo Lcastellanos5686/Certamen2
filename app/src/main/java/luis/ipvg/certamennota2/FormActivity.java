@@ -51,10 +51,6 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-
-
-
-
     private void inicializarFireBase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance("https://certamendb-default-rtdb.firebaseio.com/");
@@ -108,7 +104,8 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
                 "Defecto",
                 "Infraestructura",
                 "Alumbrado público",
-                "Vía pública"
+                "Vía pública",
+                "Otro"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -129,12 +126,9 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
             DatePickerDialog dialog = new DatePickerDialog(
                     this,
                     (view, year, month, dayOfMonth) -> {
-                        fechaSeleccionada = LocalDate.of(
-                                year, month + 1, dayOfMonth
-                        );
+                        fechaSeleccionada = LocalDate.of(year, month + 1, dayOfMonth);
 
-                        DateTimeFormatter formato =
-                                DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                         etFecha.setText(fechaSeleccionada.format(formato));
                     },
@@ -152,12 +146,9 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
             TimePickerDialog dialog = new TimePickerDialog(
                     this,
                     (view, hourOfDay, minute) -> {
-                        horaSeleccionada = LocalTime.of(
-                                hourOfDay, minute
-                        );
+                        horaSeleccionada = LocalTime.of(hourOfDay, minute);
 
-                        DateTimeFormatter formato =
-                                DateTimeFormatter.ofPattern("HH:mm");
+                        DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm");
 
                         etHora.setText(horaSeleccionada.format(formato));
                     },
@@ -172,7 +163,6 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String titulo = etTitulo.getText().toString().trim();
                 String descricpcion = etDescripcion.getText().toString().trim();
                 String hora = etHora.getText().toString().trim();
@@ -202,7 +192,7 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
                 databaseReference.child("Form")
                         .child(nuevoForm.getIdForm())
                         .setValue(nuevoForm)
-                        .addOnSuccessListener(unused -> {
+                        .addOnSuccessListener(e -> {
                             Toast.makeText(
                                     FormActivity.this,
                                     "Incidencia guardada correctamente",
@@ -220,7 +210,6 @@ public class FormActivity extends AppCompatActivity implements OnMapReadyCallbac
                         });
             }
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

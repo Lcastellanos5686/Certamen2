@@ -43,7 +43,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.material)
     implementation(platform("com.google.firebase:firebase-bom:35.0.2"))
-
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.google.firebase:firebase-database")
     implementation(libs.play.services.maps)
     implementation(libs.recyclerview)

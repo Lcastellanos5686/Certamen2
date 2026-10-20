@@ -141,4 +141,5 @@ public class IncidenciaMapaActivity extends AppCompatActivity  implements OnMapR
             return insets;
         });
     }
+
 }
